@@ -1,0 +1,24 @@
+body{
+    background: black;
+}
+
+.contenedor{
+    width: 100%;
+    height: 50%;
+}
+
+#principal{
+    width: 200px;
+    margin: 50px auto;
+}
+
+input{
+    margin-top: 10px;
+    padding: 5px;
+}
+
+button{
+    margin-top: 5px;
+    background: blue;
+    color: cornsilk;
+}

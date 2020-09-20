@@ -1,0 +1,39 @@
+div.container{
+    margin: 10px auto;
+    width: 90px;
+}
+
+.controles{
+    width: 450px;
+    margin-top:5px;
+    display: inline-block;
+    text-align: left;
+}
+
+label{
+    float: left;
+    padding: 5px;
+    width: 75px;
+}
+
+input{
+    width: 125px;
+}
+
+button{
+    color: white;
+}
+
+#Guardar{
+    background-color: blue;
+}
+
+#Cancelar{
+    background-color: red;
+}
+
+.respuesta{
+    margin: 5px;
+    padding: 10px;
+    color: sienna;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos personales</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/persona.css">
+</head>
+<body>
+    <div class="menu">
+        <a href="../index.html">Inicio</a>
+        <a href="#">Datos Persona</a>
+    </div>
+    <div>
+        <div class="container">
+            <h4>Ingrese Datos Personales</h4>
+            <form id="formulario">
+                <div class="controles">
+                    <label for="cedula">Cedula</label>
+                    <input id="cedula" type="text">
+                </div>
+                <div class="controles">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" type="text">
+                </div>
+                <div class="controles">
+                    <label for="genero">Genero</label>
+                    <select name="genero" id="genero">
+                        <option value="--" disabled selected>--</option>
+                        <option value="m">Masculino</option>
+                        <option value="f">Femenino</option>
+                        <option value="o">Otro</option>
+                    </select>
+                </div>
+                <div class="controles">
+                    <label for="email">Correo Electronico</label>
+                    <input id="email" type="text">
+                </div>
+                <div class="controles">
+                    <label for="fNacimiento">Fecha Nacimiento</label>
+                    <input id="fNacimiento" type="text">
+                </div>
+                <div class="controles">
+                    <label for="direccion">Direccion</label>
+                    <textarea id="direccion"></textarea>
+                </div>
+                <div class="controles">
+                    <button id="Guardar">Guardar</button>
+                    <button id="Cancelar">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="resulta"></div>
+    <script src="../js/persona.js"></script>
+</body>
+</html>
