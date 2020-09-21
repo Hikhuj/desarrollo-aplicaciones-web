@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/persona.css">
+    <title>Inscribir mascota</title>
+</head>
+<body>
+    <header>
+        <h1 class="company-name">Primera vez en nuestro sistema</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../vistas/noticias.html">Noticias</a></li>
+            <li><a href="../vistas/inscribeMascota.html">Inscribe tu mascota</a></li>
+            <li><a href="../vistas/otros.html">Otros</a></li>
+            <li><a href="../vistas/contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-body">
+        <div class="form-main-container">
+            <div class="container">
+                <form id="formulario">
+                    <div class="controles">
+                        <label for="nombreMascota">Nombre de mascota</label>
+                        <input id="nombreMascota" type="text">
+                    </div>
+                    <div class="controles">
+                        <label for="nombreDuenio">Nombre del dueño</label>
+                        <input id="nombreDuenio" type="text">
+                    </div>
+                    <div class="controles">
+                        <label for="tipoMascota">Tipo de mascota</label>
+                        <select name="tipoMascota" id="tipoMascota">
+                            <option value="--" disabled selected>--</option>
+                            <option value="ave">Ave</option>
+                            <option value="perro">Perro</option>
+                            <option value="gato">Gato</option>
+                            <option value="pez">Pez</option>
+                            <option value="reptil">Reptil</option>
+                            <option value="ganado">Ganado</option>
+                            <option value="aveDeCorral">Ave de corral</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="controles">
+                        <label for="poseeVacunas">¿Vacunas al día?</label>
+                        <select name="poseeVacunas" id="poseeVacunas">
+                            <option value="--" disabled selected>--</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="controles">
+                        <label for="castraccion">¿Está castrado/a?</label>
+                        <select name="castraccion" id="castraccion">
+                            <option value="--" disabled selected>--</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="controles">
+                        <label for="email">Correo Electronico</label>
+                        <input id="email" type="text">
+                    </div>
+                    <div class="controles">
+                        <label for="fNacimiento">Fecha Nacimiento</label>
+                        <input id="fNacimiento" type="text">
+                    </div>
+                    <div class="controles">
+                        <label for="direccion">Direccion</label>
+                        <textarea id="direccion"></textarea>
+                    </div>
+                    <div class="controles">
+                        <button id="Guardar">Guardar</button>
+                        <button id="Cancelar">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="resulta"></div>
+    <script src="../js/animal.js"></script>
+</body>
+</html>
