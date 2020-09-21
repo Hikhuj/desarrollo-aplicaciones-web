@@ -1,0 +1,65 @@
+div.form-main-container{
+    margin: 0;
+    padding: 100px;
+    position: relative;
+}
+
+div.container{
+    margin: 0 auto;
+    padding: 2%;
+    width: 400px;
+    background: #e0fbfc;
+    text-align: center;
+}
+
+.controles{
+    width: 450px;
+    margin-top: 5px;
+    display: inline-block;
+    text-align: left;
+    font-size: 20px;
+}
+
+label{
+    float: left;
+    padding: 5px;
+    width: 150px;
+}
+
+input{
+    width: 210px;
+}
+
+button{
+    color: white;
+}
+
+#Guardar{
+    background-color: #ee6c4d;
+    margin: 1%;
+    padding: 3%;
+    border-style: none;
+}
+
+#Guardar:hover{
+    background-color: #ee6c4d;
+    color: #293241;
+}
+
+#Cancelar{
+    background-color: #293241;
+    margin: 1%;
+    padding: 3%;
+    border-style: none;
+}
+
+#Cancelar:hover{
+    background-color: #ee6c4d;
+    color: #293241;
+}
+
+.respuesta{
+    margin: 5px;
+    padding: 10px;
+    color: sienna;
+}

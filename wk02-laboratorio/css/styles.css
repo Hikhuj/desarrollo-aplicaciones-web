@@ -1,0 +1,99 @@
+@import url('normalize.css');
+
+/*
+Color list:
+#3d5a80 azul semi marino
+#98c1d9 azul liviano
+#e0fbfc background celeste
+#ee6c4d possible highlighting
+#293241 dark blue
+*/
+
+body, html {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    background: #e0fbfc;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header{
+    height: 100px;
+    width: 100%;
+}
+
+h1.company-name{
+    font-size: 50px;
+    position: relative;
+    left: 35%;
+    top: 20%;
+    transform: translateX(-35%) translateY(-35%);
+    text-align: center;
+}
+
+nav{
+    height: 80px;
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #293241;
+    height: 100%;
+}
+
+nav li{
+    height: 100%;
+    float: left;
+}
+
+nav li a{
+    height: 100%;
+    display: inline-block;
+    color: #e0fbfc;
+    font-size: 25px;
+    text-align: center;
+    padding: 25px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover{
+    background-color: #ee6c4d;
+    color: #293241;
+}
+
+div.content-body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url(../img/bons-and-foot-prints-pattern-background_1374-18.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+div.mensaje-emergencia{
+    background-color: #98c1d9;
+    width: 80%;
+    height: 400x;
+    font-size: 80px;
+    position: relative;
+    left: 40%;
+    top: 30%;
+    transform: translateX(-35%) translateY(-35%);
+    text-align: center;
+}
+
+div.mensaje-emergencia a{
+    text-decoration: none;
+    color: #3d5a80;
+}
+
+div.mensaje-emergencia a:hover{
+    text-decoration: none;
+    color: #ee6c4d;
+}

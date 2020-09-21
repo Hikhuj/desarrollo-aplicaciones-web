@@ -1,8 +1,10 @@
 window.onload = function() {
     // var, let y const
-    var nombre = {}
-    var cedula = {}
-    var genero = {}
+    var nombreMascota = {}
+    var nombreDuenio = {}
+    var tipoMascota = {}
+    var poseeVacunas = {}
+    var castraccion = {}
     var email = {}
     var fNacimiento = {}
     var direccion = {}
@@ -12,9 +14,11 @@ window.onload = function() {
 
     function inicializarPagina(){
         // DOM document object module
-        nombre = document.getElementById('nombre');
-        cedula = document.getElementById('cedula');
-        genero = document.getElementById('genero');
+        nombreMascota = document.getElementById('nombreMascota');
+        nombreDuenio = document.getElementById('nombreDuenio');
+        tipoMascota = document.getElementById('tipoMascota');
+        poseeVacunas = document.getElementById('poseeVacunas');
+        castraccion = document.getElementById('castraccion');
         email = document.getElementById('email');
         fNacimiento = document.getElementById('fNacimiento');
         direccion = document.getElementById('direccion');
@@ -26,12 +30,13 @@ window.onload = function() {
         console.log('Controles cargados')
     }
 
-    function guardarFormulario(e){
-        e.preventDefault();
+    function guardarFormulario(){
         let mensaje = `<p>
-            Nombre: ${nombre.value}<br>
-            Cedula: ${cedula.value}<br>
-            Genero: ${genero.value}<br>
+            Nombre de Mascota: ${nombreMascota.value}<br>
+            Nombre de Dueño: ${nombreDuenio.value}<br>
+            Tipo de Mascota: ${tipoMascota.value}<br>
+            Posee Vacunas: ${poseeVacunas.value}<br>
+            Esta castrado/a: ${castraccion.value}<br>
             Email: ${email.value}<br>
             Fecha de Nacimiento: ${fNacimiento.value}<br>
             Direccion: ${direccion.value}
@@ -42,7 +47,6 @@ window.onload = function() {
     }
 
     function cancelarFormulario(){
-        e.preventDefault();
         console.log('ejecuta el boton Cancelar');
         formulario.reset()
     }
