@@ -1,0 +1,15 @@
+.footer{
+    background: #858282;
+    color: #ffffff;
+    margin: 0 20px;
+}
+
+.contenedor{
+    width: 90px;
+    height: 725px;
+}
+
+.formulario{
+    width: 50%;
+    margin: 0 auto;
+}
