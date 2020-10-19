@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lec04 Creando tabla</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+</head>
+
+<body>
+ <div class="container my-5 text-center">
+    <div class=row>
+        <div class="row-md-3">
+            <h3>Formulario</h3>
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group"><input type="text"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3>Lista de Usuarios</h3>
+    <button class="btn btn-danger w-100" id="btnObtener">Obtener</button>
+    <div class="mt-5">
+        <input type="text" id="txtFiltrar" placeholder="Filtro">
+        <table class="table  table-striped">
+            <thead  class="thead-dark">
+                <tr>                     
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="contenido">
+            </tbody>
+        </table>
+    </div>
+ </div>
+ <script src="./js/CrearTabla.js"></script>
+</body>
+
+</html>

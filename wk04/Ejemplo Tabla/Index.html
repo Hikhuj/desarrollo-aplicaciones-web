@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leccion 04 - Creando tabla</title>
+    <!-- jQuery library -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container my-5 text-center">
+        <button class="btn btn-danger w-100" id="btnObtener">Obtener</button>
+        <div class="mt-5">
+            <!-- Aqui se va a desplegar la informacion que yo quiero -->
+            <input type="text" id="txtFiltrar" placeholder="Filtro">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Body</th>
+                    </tr>
+                </thead>
+                <tbody id="contenido">
+                    <tr>
+                        <td>asdasd</td>
+                        <td>asdasd</td>
+                        <td>asdasd</td>
+                    </tr>
+                    <tr>
+                        <td>123123</td>
+                        <td>356435</td>
+                        <td>345345</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="../Ejemplo Tabla/js/CrearTabla.js"></script>
+</body>
+</html>
