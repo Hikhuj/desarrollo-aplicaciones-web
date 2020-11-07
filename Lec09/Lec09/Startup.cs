@@ -1,3 +1,4 @@
+using Lec09.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -22,6 +23,7 @@ namespace Lec09
         {
 
             services.AddControllersWithViews();
+            services.AddDbContext<AppDbContext>(options=>options.useSqlServer(Configuration.GetConnectionString("Conexion")))
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
