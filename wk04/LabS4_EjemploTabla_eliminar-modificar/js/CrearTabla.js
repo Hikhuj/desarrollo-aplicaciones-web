@@ -6,12 +6,12 @@
     var filtro = {};
     var datos = [];
 
-    // Crear una funcion para inicializar
-    // Inicializamos los componentes
+    // Funcion inicializadora de componentes
     function init() {
         contenido = document.querySelector('#contenido');
         btnObtener = document.querySelector('#btnObtener');
         filtro = document.querySelector('#txtFiltrar');
+        btnBorrarFilas = document.querySelector("#btnDeleteRow");
         bind();
     }
 
@@ -20,6 +20,7 @@
     function bind(){
         btnObtener.onclick = traerDatos;
         filtro.onblur = filtrarData;
+        btnBorrarFilas.onclick = borrarFila(document.getElementById(this));
     }
 
     function filtrarData(e){
@@ -34,19 +35,6 @@
     }
 
     function traerDatos(){
-        // Vamos a usar un FETCH para leer el archivo que queremos leer
-        // FETCH devuelve una promesa, y estas promesas estan dentro de los
-        // .then que se veran a continuacion
-
-        // Si este codigo lo pasamos a un servidor de aplicaciones si va a funcionar
-        // esto debido a que es codig o para sitios web de servidores.
-
-        // Podemos usar un API de randomuser.me para poder usar y practicar con un objeto
-        // de tipo JSON para practicar.
-        // Es mas rapido, mas liviano, accesible para
-
-        // Para un servidor local pero no funciona todavia
-        // fetch('./data/tabla.json')
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(res => res.json())
             .then(data => {
@@ -57,14 +45,19 @@
             })
     }
 
-    // El metodo MAP puede ayudarme a recorrer el arreglo
-
-    /*
-    function crearTabla(tabla){
-        console.log(tabla)
-        // console.log('en el metodo crearTabla', tabla)
+    // Agregar una columna o celda para crear cada uno de los botones
+    function borrarFila(r) {
+        // Recibe el número de fila para poder ser borrado
+        var i = document.getElementById(r)
+        document.getElementById("#fetchTable").deleteRow(i);
     }
-    */
+
+    function editarFila(){
+        /*
+            Ubicar que columna esta.
+            Ejecutar function que me permita editar texto en la posicion actual o donde este en ese momento.
+        */
+    }
 
     // Funcion para crear una tabla y recibe un objeto, en este caso un objeto de datos.
     // Esta es otra forma de ver las cosas, pues se puede guardar como variable tambien
@@ -75,9 +68,11 @@
         // Creamos el objeto
         var filas = info.map(e => {
             return `<tr>
-                <td>${e.id}</td>
-                <td>${e.title}</td>
-                <td>${e.body}</td>
+                <td id="idTableFetch">${e.id}</td>
+                <td id="titleTableFetch">${e.title}</td>
+                <td id="contentTableFetch">${e.body}</td>
+                <td id="btnEditTableFetch"><button class="btn btn-info" value="Edit" id="btnEditRow">Edit</button></td>
+                <td id="btnRemoveTableFetch"><button class="btn btn-danger" value="Delete" id="btnDeleteRow">Remove</button></td>
             </tr>`;
         })
 
