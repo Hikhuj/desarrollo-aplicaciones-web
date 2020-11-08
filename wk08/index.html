@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesos de Encriptacion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/estilos.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+<body>
+    <div id="stage">
+        <div id="step1">
+            <div class="content">
+                <h1>Que desea hacer</h1>
+                <a class="button encrypt green">Encriptar Archivo</a>
+                <a class="button decrypt magenta">Decriptar Archivo</a>
+            </div>
+        </div>
+        <div id="step2">
+            <div class="content if-encrypt">
+                <h1>Seleccione el archivo que desea encriptar</h1>
+                <h2>Este proceso hace una copia del original con otra extension</h2>
+                <a class="button browser blue">Archivo...</a>
+                <input type="file" id="encrypt-input">                
+            </div>
+            <div class="content if-decrypt">
+                <h1>Seleccione el archivo que desea desencriptar</h1>
+                <h2>Solo funciona con archivos encriptados</h2>
+                <a class="button browser blue">Archivo...</a>
+                <input type="file" id="decrypt-input">                
+            </div>
+        </div>
+        <div id="step3">
+            <div class="content if-encrypt">
+                <h1>Digite una frase de contraseña</h1>
+                <h2>Esta frase sera usada como llave de encriptación por favor recordarla o apuntarla</h2>
+                <input type="password">
+                <a class="button process red">Encriptar!!!</a>
+            </div>
+            <div class="content if-decrypt">
+                <h1>Digite una frase de contraseña</h1>
+                <h2>Utilice la misma frase que indico en el metodo de encriptación</h2>
+                <input type="password">
+                <a class="button process red">Decriptar!!!</a>
+            </div>
+        </div>
+        <div id="step4">
+            <div class="content">
+                <h1>Su archivo está listo</h1>
+                <a class="button download green">Descargar!!!</a>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/aes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>

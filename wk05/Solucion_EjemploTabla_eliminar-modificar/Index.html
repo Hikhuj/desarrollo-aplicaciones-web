@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leccion 04 - Creando tabla</title>
+    <!-- jQuery library -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container py-5 text-center">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Si quisieramos hacerlo a pata, pues usamos la propiedad de CSS llamada Flex -->
+                <h3>Formulario</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <form id="formUsuario">
+                            <div class="form-group"><input type="text" id="userId" placeholder="User ID"></div>
+                            <div class="form-group"><input type="text" id="id" placeholder="ID"></div>
+                            <div class="form-group"><input type="text" id="title" placeholder="Title"></div>
+                            <div class="form-group"><input type="text" id="body" placeholder="Body"></div>
+                            <div class="form-group">
+                                <button id="btnGuardarUsuario" class="btn btn-primary">Guardar</button>
+                                <button id="btnCancelarUsuario" class="btn btn-danger">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h3>Lista de Usuarios</h3>
+                <button type="button" class="btn btn-primary w-100" id="btnObtener">Obtener</button>
+                <div class="mt-5">
+                    <input type="text" id="txtFiltrar" placeholder="Filtro por ID" class="form-control">
+                    <!-- Init: Tabla de datos -->
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>User ID</th>
+                                <th>Id</th>
+                                <th>Title</th>
+                                <th>Body</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contenido">
+                            
+                        </tbody>
+                    </table>
+                    <!-- End: Tabla de datos -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Solucion_EjemploTabla_eliminar-modificar/js/CrearTabla.js"></script>
+</body>
+</html>
