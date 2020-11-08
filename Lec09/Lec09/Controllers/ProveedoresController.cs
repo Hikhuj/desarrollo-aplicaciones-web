@@ -57,14 +57,35 @@ namespace Lec09.Controllers
 
         // POST api/<ProveedoresController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult Post([FromBody] Proveedores proveedor)
         {
+            try
+            {
+                context.proveedoresDB.Add(proveedor);
+                context.SaveChanges();
+                return CreatedAtRoute("ObtenerProveedor", new {id=proveedor.Cod_Proveedor},proveedor);
+            }
+            catch
+            {
+                return BadRequest(Exception.Message);
+            }
         }
 
         // PUT api/<ProveedoresController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult Put(int id, [FromBody] Proveedores proveedor)
         {
+            try
+            {
+                if ()
+                {
+
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         // DELETE api/<ProveedoresController>/5
