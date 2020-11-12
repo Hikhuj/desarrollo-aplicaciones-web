@@ -1,12 +1,36 @@
 import React, { Component } from 'react';
+// Se llama al componente que se creo, se debe importar para poderse usar
+import Lec09 from '../components/Lec09';
 
 export class Home extends Component {
-  static displayName = Home.name;
+    static displayName = Home.name;
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            profesor: {
+                nombreCompleto: "Roger Ulate Rivera",
+                carrera: "Ingenieria Informatica",
+                universidad: "Ulacit"
+            }
+        };
+    }
 
   render () {
     return (
       <div>
-        <h1>Hello, world!</h1>
+            <h1>Hello, world!</h1>
+            {/*
+                Aqui en la siguiente linea llamamos al componente que se creo a pata, el componente Lec09
+                para poder inscrustarlo aca en el disenio de nuestra aplicacion y asi es como se llaman a los componentes
+                , en donde estos se llaman con forme al nombre de la clase con la que se crearon "Lec09"
+                Y se crea un tag con ese mismo nombre para poder darles visualizacion, en este caso en el Home.
+             */}
+            {/* Al objeto Lec09 se le envia un atributo por medio de un objeto de tipo profesor, junto con su
+             * estado (el valor o cambio) y con esto se logra llamar a lo que debe devolver Lec09 (render)
+             * que en este caso es un saludo y donde recibe el atributo del nombre del profesor (<h2>)
+             */}
+            <Lec09 profesor={this.state.profesor} />
         <p>Welcome to your new single-page application, built with:</p>
         <ul>
           <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
