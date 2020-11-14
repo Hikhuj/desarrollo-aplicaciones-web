@@ -4,7 +4,6 @@
 import React, { Component } from 'react';
 
 export class Lec09 extends Component {
-
     static displayName = Lec09.name;
 
     constructor(props) {
@@ -21,6 +20,7 @@ export class Lec09 extends Component {
                 <h2>Universidad: {this.props.profesor.universidad}</h2>
 
                 <button className="btn btn-danger"><a href="https://www.w3docs.com/" target="_blank">No haga click aqui</a></button>
+                <button className="btn btn-danger" href="https://www.google.com">Ir a Google</button>
             </div>
             );
     }
