@@ -20,18 +20,25 @@ export class Proveedor extends Component {
             }
         };
         this.handleChange = this.handleChange.bind(this);
-    }
-
-    abriCerrarModal() {
-        this.setState({
-            modal: !this.state.modal
-        })
+        this.abrirCerrarModal = this.abrirCerrarModal.bind(this);
     }
 
     // De los inputs que acabamos de hacer
     handleChange(e) {
         const { name, value } = e.target;
         console.log(name, ':', value);
+        // Esto nos ayudaria a maximimar el amig (de la forma larga)
+        this.setState(preveState => ({
+            proveedor: {
+                ...preveState.proveedor, [name]: value
+            }
+        }));
+    }
+
+    abrirCerrarModal() {
+        this.setState({
+            modal: !this.state.modal
+        })
     }
 
     componentDidMount() {
@@ -76,11 +83,13 @@ export class Proveedor extends Component {
         // No se pueden devolver mas de dos componentes en un render
         // Esos modals es como si estuvieramos trabajando con las tarjetas de 
         // Bootstrap.
+
+        // Para abrir y cerrar el modal cuando necesitamos es el this.abrirCerrarModal()
+        // el buton
         return (
             <div>
                 <h1 id="tabelLabel" >Proveedores</h1>
                 <p>Lista de proveedores</p>
-                {/* Para abrir y cerrar el modal cuando necesitemos */}
                 <button className="btn btn-primary" onClick={ () => this.abrirCerrarModal()}>Nuevo</button>
                 {contents}
                 <Modal isOpen={this.state.modal}>
@@ -142,7 +151,7 @@ export class Proveedor extends Component {
                         </div>
                         <div>
                             <button className="btn btn-success">Guardar</button>
-                            <button className="btn btn-danger">Cancelar</button>
+                            <button className="btn btn-danger" onClick={() => this.abrirCerrarModal()}>Cancelar</button>
                         </div>
                     </ModalBody>
                     <ModalFooter></ModalFooter>
