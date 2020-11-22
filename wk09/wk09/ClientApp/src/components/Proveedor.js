@@ -13,14 +13,26 @@ export class Proveedor extends Component {
             loading: true,
             modal: false,
             proveedor: {
-                cod_proveedor: '',
+                cod_proveedor: 0,
                 nombre_proveedor: '',
                 telefono: '',
                 direccion: ''
             }
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleChangeCodigo = this.handleChangeCodigo.bind(this);
         this.abrirCerrarModal = this.abrirCerrarModal.bind(this);
+    }
+
+    // De los inputs que acabamos de hacer
+    // Para manejar el codigo de proveedor
+    handleChangeCodigo(e) {
+        // Esto nos ayudaria a maximimar el amig (de la forma larga)
+        this.setState(preveState => ({
+            proveedor: {
+                ...preveState.proveedor, cod_Proveedor: parseInt(e.target.value)
+            }
+        }));
     }
 
     // De los inputs que acabamos de hacer
@@ -33,6 +45,22 @@ export class Proveedor extends Component {
                 ...preveState.proveedor, [name]: value
             }
         }));
+    }
+
+    // Esto hace que sea asincrono, va a esperar algo.
+    // Axios es una libreria de JS
+    async crearProveedor() {
+        console.log(this.state.proveedor)
+        await fetch('api/Proveedores', {
+            method: 'POST',
+            body: JSON.stringify(this.state.proveedor),
+            headers: {
+                'content-type':'application/json'
+            }
+        })
+            .then(response => {
+                console.log(response.json());
+            }).catch(error => console.log(error));
     }
 
     abrirCerrarModal() {
@@ -106,7 +134,7 @@ export class Proveedor extends Component {
                                         className="form-control"
                                         // Para el evento on change de cada uno de ellos
                                         // le asocie el mentodo anterior creado (handleChange())
-                                        onChange={this.handleChange}
+                                        onChange={this.handleChangeCodigo}
                                     />
                                 </div>
                             </div>
@@ -150,7 +178,7 @@ export class Proveedor extends Component {
                             </div>
                         </div>
                         <div>
-                            <button className="btn btn-success">Guardar</button>
+                            <button className="btn btn-success" onClick={() => this.crearProveedor()}>Guardar</button>
                             <button className="btn btn-danger" onClick={() => this.abrirCerrarModal()}>Cancelar</button>
                         </div>
                     </ModalBody>

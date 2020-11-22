@@ -51,6 +51,12 @@ namespace wk09
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
+            app.UseCors(options => {
+                options.WithOrigins("http://localhost:44352");
+                options.AllowAnyMethod();
+                options.AllowAnyHeader();
+            });
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
