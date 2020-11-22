@@ -7,13 +7,7 @@ Para la clase de semana 10 el profe instaló axios en Windows. Esto se realiza i
 Se instala el paquete `axios` por medio de `npm`
 
 ```console
-  npm i bootstrap reactstrp axios
-```
-
-O bien solo axios
-
-```console
-  npm i reactstrp axios
+  npm i bootstrap reactstrap axios
 ```
 
 Una vez hecho esto se puede continuar con el proyecto.
