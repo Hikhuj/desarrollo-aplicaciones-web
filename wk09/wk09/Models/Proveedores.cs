@@ -17,6 +17,7 @@ namespace wk09.Models
          * Existen otro tipo de palabras claves para usar pero deben leerse.
          */
         /* podemos usar la palabra clave [key] que nos ayuda a definir quien es la llave principal del proyecto*/
+        [Key]
         public int Cod_Proveedor { get; set; }
         public string Nombre_Proveedor { get; set; }
         public string Telefono { get; set; }

@@ -67,13 +67,13 @@ namespace wk09.Controllers
          */
         // POST api/<ProveedorController>
         [HttpPost]
-        public ActionResult Post([FromBody] Proveedores proveedor)
+        public ActionResult Post([FromBody] Proveedores prov)
         {
             try
             {
-                context.Proveedores.Add(proveedor);
+                context.Proveedores.Add(prov);
                 context.SaveChanges();
-                return CreatedAtRoute("ObtenerProveedor", new{ id = proveedor.Cod_Proveedor}, proveedor);
+                return CreatedAtRoute("ObtenerProveedor", new{ id = prov.Cod_Proveedor}, prov);
             }
             catch (Exception ex)
             {

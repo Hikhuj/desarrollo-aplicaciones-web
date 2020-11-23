@@ -19,7 +19,7 @@ export class Lec09 extends Component {
                 <h2>Carrera: {this.props.profesor.carrera}</h2>
                 <h2>Universidad: {this.props.profesor.universidad}</h2>
 
-                <button className="btn btn-danger"><a href="https://www.w3docs.com/" target="_blank">No haga click aqui</a></button>
+                <button className="btn btn-danger"><a href="https://www.w3docs.com/">No haga click aqui</a></button>
                 <button className="btn btn-danger" href="https://www.google.com">Ir a Google</button>
             </div>
             );
