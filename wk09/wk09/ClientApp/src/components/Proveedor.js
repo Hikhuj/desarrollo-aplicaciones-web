@@ -184,7 +184,7 @@ export class Proveedor extends Component {
 
     static construyendoTablaProveedores(listaProveedor, objeto) {
         return (
-            <table className='table table-striped' aria-labelledby="tabelLabel">
+            <table className='table table-striped' aria-labelledby="tableLabel">
                 <thead>
                     <tr>
                         <th>Codigo</th>
@@ -225,7 +225,7 @@ export class Proveedor extends Component {
         // el buton
         return (
             <div>
-                <h1 id="tabelLabel" >Proveedores</h1>
+                <h1 id="tableLabel" >Proveedores</h1>
                 <p>Lista de proveedores</p>
                 <button className="btn btn-primary" onClick={() => this.abrirCerrarModal()}>Nuevo</button>
                 {contents}

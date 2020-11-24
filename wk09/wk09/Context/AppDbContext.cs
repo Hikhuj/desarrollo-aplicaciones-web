@@ -17,5 +17,6 @@ namespace wk09.Context
 
         // El nombre debe estar igual al de la base de datos para que funcione bien
         public DbSet<Proveedores> Proveedores { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
     }
 }
