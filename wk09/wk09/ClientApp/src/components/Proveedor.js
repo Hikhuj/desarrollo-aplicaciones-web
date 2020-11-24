@@ -1,6 +1,7 @@
 ﻿import React, { Component } from 'react';
 import axios from 'axios';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { data } from 'jquery';
 
 export class Proveedor extends Component {
     static displayName = Proveedor.name;
@@ -80,21 +81,98 @@ export class Proveedor extends Component {
             }).catch(error => console.log(error));
     }
 
+    /* Al utilizar FETCH se tiene a hacer un poco más largo por la cantidad de procesos adicionales que se deben realizar
+     * pero con AXIOS (paquete que esta en NPM) se puede realizar esta tarea de una forma mas corta, facil y rapida.
+     */
+
+
+    // Esto hace que sea asincrono, va a esperar algo.
+    // Axios es una libreria de JS
+    // Para este vamos a usar AXIOS
+    async editarProveedor() {
+        // put('api/Proveedores') es donde debe llegar AXIOS para encontrar lo que necesitamos
+        // Con axios le paso el controlador que vive dentro de la misma aplicacion, que por eso lo mando solo asi: api/Proveedores
+        // Y las comillas de JS (inversas) me permite insertar codigo en un string para concatenar
+        // Tambien le paso el objeto que selecciono
+        await axios.put(`api/Proveedores/${this.state.proveedor.cod_Proveedor}`, this.state.proveedor)
+            // Si lo anterior se cumple vamos con la siguiente promesa (Promise)
+            .then(response => {
+                // Cuando obtiene la data, la pone en la variable respuesta
+                var respuesta = response.data;
+                // Extrae los proveedores, listandolo en la variable de datosAuxiliares
+                var dataAuxiliar = this.state.proveedores;
+                // Procesamos el auxiliar editandole la informacion que necesitamos o deseamos.
+                dataAuxiliar.map(prov => {
+                    // Si el id que les enviamos es igual al id de la DB se procesa 
+                    if (prov.cod_Proveedor === respuesta.cod_Proveedor) {
+                        prov.nombre_Proveedor = respuesta.nombre_Proveedor;
+                        prov.telefono_Proveedor = respuesta.telefono;
+                        prov.direccion_Proveedor = respuesta.direccion;
+                    }
+                })
+                // Luego al estado anterior lo subplantamos con el nuevo data de dataAuxiliar
+                this.setState({
+                    proveedores: dataAuxiliar
+                })
+                // Luego lo muestra en la tabla como tal
+                // Y luego lo cerramos el modal
+                this.abrirCerrarModalEditar();
+            }).catch(error => {
+                console.log('Put', error)
+            })
+    }
+
+    // Esto hace que sea asincrono, va a esperar algo.
+    // Axios es una libreria de JS
+    // Para este vamos a usar AXIOS
+    async eliminarProveedor() {
+        // DELETE solo recibe un parametro para poder eliminar un dato
+        await axios.delete(`api/Proveedores/${this.state.proveedor.cod_Proveedor}`)
+            // Si lo anterior se cumple vamos con la siguiente promesa (Promise)
+            .then(response => {
+                var dataAuxiliar = this.state.proveedores;
+                console.log(response.data);
+                // Procesamos el auxiliar editandole la informacion que necesitamos o deseamos.
+                var listaFinal = dataAuxiliar.filter(prov => {
+                    console.log(prov.cod_Proveedor);
+                    if (prov.cod_Proveedor !== response.data) {
+                        return prov
+                    }
+                });
+                console.log('delete:', listaFinal)
+                // Luego al estado anterior lo subplantamos con el nuevo data de dataAuxiliar
+                this.setState({
+                    proveedores: listaFinal
+                })
+                // Luego lo muestra en la tabla como tal
+                // Y luego lo cerramos el modal
+                this.abrirCerrarModalEliminar();
+            }).catch(error => {
+                console.log('delete', error)
+            })
+    }
+
     abrirCerrarModal() {
         this.setState({
             modal: !this.state.modal
         })
     }
 
-    abrirCerrarModalEditar() {
-        console.log('abrirCerrarModalEditar');
+    // Se le pasa el proveedor para que tenga referencia del dato que necesita para poder ejecutar el proceso
+    // En este caso el objeto, que en realidad es proveedor.
+    abrirCerrarModalEditar(dato) {
+        this.setState({
+            proveedor: dato
+        })
         this.setState({
             modalEditar: !this.state.modalEditar
         })
     }
 
-    abrirCerrarModalEliminar() {
-        console.log('abrirCerrarModalEliminar');
+    abrirCerrarModalEliminar(dato) {
+        this.setState({
+            proveedor: dato
+        })
         this.setState({
             modalEliminar: !this.state.modalEliminar
         })
@@ -124,7 +202,7 @@ export class Proveedor extends Component {
                             <td>{prov.telefono}</td>
                             <td>{prov.direccion}</td>
                             <td>
-                                <button className="btn btn-success" onClick={() => objeto.abrirCerrarModalEditar()}>Editar</button>
+                                <button className="btn btn-success" onClick={() => objeto.abrirCerrarModalEditar(prov)}>Editar</button>
                                 <button className="btn btn-danger" onClick={() => objeto.abrirCerrarModalEliminar()}>Eliminar</button>
                             </td>
                         </tr>
@@ -211,16 +289,32 @@ export class Proveedor extends Component {
                     <ModalBody>
                         <div className="form-group">
                             <div className="form-group row">
-                                <label for="nombre_Proveedor" className="col-sm-2 col-form-label">Nombre</label>
+                                <label for="cod_Proveedor" className="col-sm-2 col-form-label">Codigo</label>
+                                <div className="col-sm-10">
+                                    <input
+                                        type="text"
+                                        id="cod_Proveedor"
+                                        name="cod_Proveedor"
+                                        className="form-control"
+                                        // Para el evento on change de cada uno de ellos
+                                        // le asocie el mentodo anterior creado (handleChange())
+                                        // onChange={this.handleChange}
+                                        readOnly
+                                        //this. el objeto que yo quiero modificar
+                                        value={this.state.proveedor && this.state.proveedor.cod_Proveedor}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label for="nombre_Proveedor" className="col-sm-2 col-form-label">Nombre Proveedor</label>
                                 <div className="col-sm-10">
                                     <input
                                         type="text"
                                         id="nombre_Proveedor"
                                         name="nombre_Proveedor"
                                         className="form-control"
-                                        // Para el evento on change de cada uno de ellos
-                                        // le asocie el mentodo anterior creado (handleChange())
                                         onChange={this.handleChange}
+                                        value={this.state.proveedor && this.state.proveedor.nombre_Proveedor}
                                     />
                                 </div>
                             </div>
@@ -233,6 +327,7 @@ export class Proveedor extends Component {
                                         name="telefono"
                                         className="form-control"
                                         onChange={this.handleChange}
+                                        value={this.state.proveedor && this.state.proveedor.telefono}
                                     />
                                 </div>
                             </div>
@@ -245,6 +340,7 @@ export class Proveedor extends Component {
                                         name="direccion"
                                         className="form-control"
                                         onChange={this.handleChange}
+                                        value={this.state.proveedor && this.state.proveedor.direccion}
                                     />
                                 </div>
                             </div>
@@ -265,7 +361,8 @@ export class Proveedor extends Component {
                     <ModalBody>
                         <div className="form-group">
                             <div className="form-group row">
-                                <p>Esta seguro que desea eliminar registro?</p>
+                                <p>Esta seguro que desea eliminar el proveedor
+                                {this.state.proveedor && this.state.proveedor.nombre_Proveedor}?</p>
                             </div>
                             <div>
                                 <button className="btn btn-success" onClick={() => this.eliminarProveedor()}>Si</button>
